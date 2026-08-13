@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sacred-markdown.vibery.gg/spec/action.schema.json",
+  "title": "Sacred action capability",
+  "type": "object",
+  "required": ["name", "label", "payload"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "label": { "type": "string", "minLength": 1 },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false
+}

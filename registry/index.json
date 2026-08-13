@@ -1,0 +1,16 @@
+{
+  "registryVersion": "0.1.0",
+  "sacred": "^0.1.0",
+  "packages": [
+    {
+      "name": "@sacred/commonplace",
+      "version": "0.1.0",
+      "manifest": "./packages/sacred-commonplace-0.1.0.json"
+    },
+    {
+      "name": "@vibery/sacred-operations",
+      "version": "0.1.0",
+      "manifest": "./packages/vibery-sacred-operations-0.1.0.json"
+    }
+  ]
+}

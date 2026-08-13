@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sacred-markdown.vibery.gg/spec/ir.schema.json",
+  "title": "Sacred Markdown 0.1 Intermediate Representation",
+  "type": "object",
+  "required": ["sacred", "sourceSyntax", "root", "frontmatter", "nodes"],
+  "properties": {
+    "sacred": { "const": "0.1" },
+    "sourceSyntax": { "enum": ["sacred", "markdoc", "mdx"] },
+    "root": { "type": "string", "minLength": 1 },
+    "frontmatter": {
+      "type": "object",
+      "required": ["sacred"],
+      "properties": {
+        "sacred": { "type": "string" },
+        "syntax": { "enum": ["sacred", "markdoc", "mdx"] },
+        "components": { "type": "string" },
+        "theme": { "type": "string" },
+        "capabilities": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      },
+      "additionalProperties": false
+    },
+    "nodes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/node" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "span": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "$ref": "#/$defs/point" },
+        "end": { "$ref": "#/$defs/point" }
+      },
+      "additionalProperties": false
+    },
+    "point": {
+      "type": "object",
+      "required": ["line", "column", "offset"],
+      "properties": {
+        "line": { "type": "integer", "minimum": 1 },
+        "column": { "type": "integer", "minimum": 1 },
+        "offset": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "node": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["id", "kind", "children"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "kind": { "const": "document" },
+            "children": { "type": "array", "items": { "type": "string" } },
+            "span": { "$ref": "#/$defs/span" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["id", "kind", "markdown"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "kind": { "const": "prose" },
+            "markdown": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["id", "kind", "props"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "kind": { "const": "status" },
+            "props": { "$ref": "./status.schema.json" },
+            "span": { "$ref": "#/$defs/span" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["id", "kind", "props"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "kind": { "const": "progress" },
+            "props": { "$ref": "./progress.schema.json" },
+            "span": { "$ref": "#/$defs/span" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["id", "kind", "props"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "kind": { "const": "action" },
+            "props": { "$ref": "./action.schema.json" },
+            "span": { "$ref": "#/$defs/span" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["id", "kind", "capability", "raw", "fallback"],
+          "properties": {
+            "id": { "type": "string", "minLength": 1 },
+            "kind": { "const": "unsupported" },
+            "capability": { "type": "string" },
+            "raw": { "type": "string" },
+            "fallback": { "type": "string" },
+            "span": { "$ref": "#/$defs/span" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sacred-markdown.vibery.gg/spec/progress.schema.json",
+  "title": "Sacred progress capability",
+  "type": "object",
+  "required": ["value", "max"],
+  "properties": {
+    "label": { "type": "string", "minLength": 1 },
+    "value": { "type": "number" },
+    "max": { "type": "number", "exclusiveMinimum": 0 },
+    "tone": { "enum": ["neutral", "info", "success", "warning", "critical"] }
+  },
+  "additionalProperties": false
+}
