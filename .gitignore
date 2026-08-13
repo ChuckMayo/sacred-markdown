@@ -5,6 +5,7 @@ coverage/
 .vite/
 *.tsbuildinfo
 output/
+.playwright-cli/
 .sacred/
 public/spec/
 public/registry/
