@@ -2,17 +2,43 @@
 
 **A safe, streamable, human-readable interface protocol for agents and design systems.**
 
-Sacred Markdown is an open-source proposal for turning semantic Markdown into trusted local design-system components.
+Sacred Markdown is an implemented open-source protocol for turning semantic Markdown into trusted local design-system components.
 
 Agents express meaning. Hosts control presentation, capabilities, and actions.
 
 > Write content once. Render it through any trusted design system.
 
+[Try the live protocol](https://sacred-markdown.vibery.gg) · [Read the normative Sacred 0.1 spec](./spec/sacred-0.1.md) · [Inspect the benchmark evidence](./benchmarks/results/latest.md)
+
 ## Status
 
-Sacred Markdown is currently a thesis and a draft `0.1` protocol. The syntax, intermediate representation, and package boundaries in this document are proposals intended to be tested through real implementations.
+Sacred Markdown `0.1` now has a parser, typed intermediate representation, JSON Schemas, safe streaming processor, Vibery flat-map adapter, React renderer, terminal renderer, Markdoc and trusted-local MDX adapters, two component packs, registry tooling, and a public conformance benchmark.
 
-Vibery is the intended first proving ground, not a required runtime.
+Phases 0 through 3 are shipped as a proof of concept. Vibery is the first proving ground, not a required runtime.
+
+The first public benchmark passed its quality gate: across 8 representative interface tasks and 2 independent runs per format with `gpt-5.5`, Sacred Markdown used **37.4% fewer mean output tokens** than the equivalent flat component JSON while both formats achieved 100% syntax validity, contract validity, content completeness, and successful output. Raw outputs and the scoring code are committed so the claim can be reproduced or challenged.
+
+## Run it locally
+
+Requires Node.js 22 or newer.
+
+```sh
+npm ci
+npm test
+npm run typecheck
+npm run benchmark
+npm run dev
+```
+
+The benchmark command scores the committed independent model outputs without making network calls. `npm run benchmark:generate` records a fresh corpus through the locally authenticated Codex CLI.
+
+Registry commands are local and integrity checked:
+
+```sh
+npm run registry -- list
+npm run registry -- verify @vibery/sacred-operations
+npm run registry -- install @sacred/commonplace
+```
 
 ## The thesis
 
@@ -154,7 +180,9 @@ Review release
 
 With Vibery's component pack installed, the same semantic nodes might resolve to `BriefingCard`, `StatusRow`, `ProgressBar`, and a locally authorized action button.
 
-## Draft 0.1 specification
+## Sacred 0.1 specification
+
+The normative protocol and machine-readable schemas live in [`spec/`](./spec/). The following is the thesis-level specification and rationale retained alongside the implementation.
 
 The key words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** describe protocol requirements in this draft.
 
@@ -513,7 +541,7 @@ The first vertical slice should support:
 
 Vibery can eventually become a curator and distributor of component packs, themes, and operational interface capabilities without making Sacred Markdown dependent on Vibery.
 
-## Proposed package map
+## Package map
 
 ```text
 @sacred-markdown/core
@@ -526,11 +554,11 @@ Vibery can eventually become a curator and distributor of component packs, theme
 @sacred-markdown/theme-vibery
 ```
 
-These names describe possible boundaries, not published packages.
+The proof of concept keeps these boundaries inside one repository. They describe intended package seams; no npm packages have been published yet.
 
 ## Roadmap
 
-### Phase 0: prove the contract
+### Phase 0: contract — shipped
 
 - Collect equivalent Markdown, Sacred, and JSON fixtures.
 - Define the exact `0.1` grammar.
@@ -539,7 +567,7 @@ These names describe possible boundaries, not published packages.
 - Build a validator with human-readable diagnostics.
 - Measure token use and model validity across representative prompts.
 
-### Phase 1: prove the renderer
+### Phase 1: renderer — shipped
 
 - Build a streaming parser.
 - Build Markdown fallback rendering.
@@ -547,14 +575,14 @@ These names describe possible boundaries, not published packages.
 - Verify stable updates across adversarial chunk boundaries.
 - Add Storybook examples and accessibility checks.
 
-### Phase 2: prove portability
+### Phase 2: portability — shipped
 
 - Add a second, visually distinct React component pack.
 - Add a non-React or non-browser renderer.
 - Add a Markdoc adapter.
 - Specify themes and compatibility behavior.
 
-### Phase 3: prove distribution
+### Phase 3: distribution — shipped
 
 - Publish the registry manifest schema.
 - Add integrity and provenance metadata.

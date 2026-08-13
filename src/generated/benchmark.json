@@ -1,0 +1,393 @@
+{
+  "benchmarkVersion": "0.1.0",
+  "generatedAt": "2026-08-13T11:43:15.798Z",
+  "method": {
+    "tokenizer": "o200k_base via js-tiktoken",
+    "tasks": 8,
+    "runsPerFormat": 2,
+    "models": [
+      "gpt-5.5"
+    ],
+    "codexVersions": [
+      "codex-cli 0.133.0"
+    ],
+    "source": "benchmarks/model-runs/*.json"
+  },
+  "keyResult": {
+    "tokenReductionPercent": 37.4,
+    "claim": "37.4% fewer output tokens than the equivalent flat JSON design-system format",
+    "successful": true
+  },
+  "formats": {
+    "sacred": {
+      "samples": 16,
+      "meanOutputTokens": 75.4,
+      "syntaxValidityPercent": 100,
+      "contractValidityPercent": 100,
+      "contentCompletenessPercent": 100,
+      "successfulPercent": 100
+    },
+    "json": {
+      "samples": 16,
+      "meanOutputTokens": 120.5,
+      "syntaxValidityPercent": 100,
+      "contractValidityPercent": 100,
+      "contentCompletenessPercent": 100,
+      "successfulPercent": 100
+    }
+  },
+  "samples": [
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "release",
+      "tokens": 125,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "incident",
+      "tokens": 107,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "build",
+      "tokens": 132,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "usage",
+      "tokens": 109,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "review",
+      "tokens": 127,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "onboarding",
+      "tokens": 105,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "fleet",
+      "tokens": 133,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 1,
+      "taskId": "registry",
+      "tokens": 145,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "release",
+      "tokens": 109,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "incident",
+      "tokens": 101,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "build",
+      "tokens": 128,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "usage",
+      "tokens": 109,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "review",
+      "tokens": 123,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "onboarding",
+      "tokens": 101,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "fleet",
+      "tokens": 133,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "json",
+      "run": 2,
+      "taskId": "registry",
+      "tokens": 141,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "release",
+      "tokens": 67,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "incident",
+      "tokens": 63,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "build",
+      "tokens": 82,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "usage",
+      "tokens": 68,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "review",
+      "tokens": 77,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "onboarding",
+      "tokens": 62,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "fleet",
+      "tokens": 87,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 1,
+      "taskId": "registry",
+      "tokens": 94,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "release",
+      "tokens": 68,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "incident",
+      "tokens": 63,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "build",
+      "tokens": 83,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "usage",
+      "tokens": 69,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "review",
+      "tokens": 78,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "onboarding",
+      "tokens": 63,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "fleet",
+      "tokens": 87,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    },
+    {
+      "format": "sacred",
+      "run": 2,
+      "taskId": "registry",
+      "tokens": 95,
+      "syntaxValid": true,
+      "contractValid": true,
+      "contentComplete": true,
+      "successful": true,
+      "diagnostics": []
+    }
+  ]
+}

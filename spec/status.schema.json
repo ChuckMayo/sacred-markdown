@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sacred-markdown.vibery.gg/spec/status.schema.json",
+  "title": "Sacred status capability",
+  "type": "object",
+  "required": ["label", "value"],
+  "properties": {
+    "label": { "type": "string", "minLength": 1 },
+    "value": { "type": "string", "minLength": 1 },
+    "tone": { "enum": ["neutral", "info", "success", "warning", "critical"] }
+  },
+  "additionalProperties": false
+}

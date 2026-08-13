@@ -1,0 +1,22 @@
+{
+  "name": "@vibery/sacred-operations",
+  "version": "0.1.0",
+  "sacred": "^0.1.0",
+  "capabilities": {
+    "action": "../../spec/action.schema.json",
+    "progress": "../../spec/progress.schema.json",
+    "status": "../../spec/status.schema.json"
+  },
+  "renderers": {
+    "react": "../../src/rendering/react.tsx",
+    "vibery-flat-map": "../../src/adapters/vibery.ts"
+  },
+  "themes": [
+    "command-dark"
+  ],
+  "provenance": {
+    "repository": "https://github.com/ChuckMayo/sacred-markdown",
+    "commit": "2c4c13a"
+  },
+  "integrity": "sha256-dEiVPEKIErqVAj7UODF+EvE9DNz8PVV4D/S3D9nbCG8="
+}

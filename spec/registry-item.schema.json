@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sacred-markdown.vibery.gg/spec/registry-item.schema.json",
+  "title": "Sacred registry item 0.1",
+  "type": "object",
+  "required": ["name", "version", "sacred", "capabilities", "renderers", "themes", "provenance", "integrity"],
+  "properties": {
+    "name": { "type": "string", "pattern": "^@[a-z0-9-]+/[a-z0-9-]+$" },
+    "version": { "type": "string" },
+    "sacred": { "type": "string" },
+    "capabilities": { "type": "object", "additionalProperties": { "type": "string" } },
+    "renderers": { "type": "object", "additionalProperties": { "type": "string" } },
+    "themes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "provenance": {
+      "type": "object",
+      "required": ["repository", "commit"],
+      "properties": {
+        "repository": { "type": "string", "format": "uri" },
+        "commit": { "type": "string", "minLength": 7 }
+      },
+      "additionalProperties": false
+    },
+    "integrity": { "type": "string", "pattern": "^sha256-[A-Za-z0-9+/=]+$" }
+  },
+  "additionalProperties": false
+}

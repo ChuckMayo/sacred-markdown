@@ -1,0 +1,13 @@
+node_modules/
+dist/
+storybook-static/
+coverage/
+.vite/
+*.tsbuildinfo
+output/
+.playwright-cli/
+.sacred/
+public/spec/
+public/registry/
+benchmarks/model-runs/.last-*.json
+.DS_Store

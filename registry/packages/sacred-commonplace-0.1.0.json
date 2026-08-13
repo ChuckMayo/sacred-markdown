@@ -1,0 +1,22 @@
+{
+  "name": "@sacred/commonplace",
+  "version": "0.1.0",
+  "sacred": "^0.1.0",
+  "capabilities": {
+    "action": "../../spec/action.schema.json",
+    "progress": "../../spec/progress.schema.json",
+    "status": "../../spec/status.schema.json"
+  },
+  "renderers": {
+    "react": "../../src/rendering/react.tsx",
+    "terminal": "../../src/adapters/terminal.ts"
+  },
+  "themes": [
+    "commonplace-paper"
+  ],
+  "provenance": {
+    "repository": "https://github.com/ChuckMayo/sacred-markdown",
+    "commit": "2c4c13a"
+  },
+  "integrity": "sha256-OqzD8eiYnteiS/2cWGsCoFEbkVQAwHzJcJk7N/FDQsQ="
+}

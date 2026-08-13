@@ -1,0 +1,84 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [Verify]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: sacred-markdown-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  deploy:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: production
+    env:
+      VPS_HOST: ${{ vars.VPS_HOST }}
+      VPS_USER: ${{ vars.VPS_USER }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Require deployment configuration
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          test -n "$VPS_HOST"
+          test -n "$VPS_USER"
+          test -n "$VPS_SSH_KEY"
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm rebuild esbuild
+      - run: npm run build
+      - name: Stamp public build identity
+        env:
+          BUILD_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          printf '{"sha":"%s","builtAt":"%s","repository":"%s"}\n' \
+            "$BUILD_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$GITHUB_REPOSITORY" > dist/BUILD_INFO.json
+      - name: Configure project deploy key
+        env:
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        run: |
+          install -d -m 0700 ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 0600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+      - name: Upload immutable release
+        env:
+          BUILD_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          REMOTE_ROOT=/opt/vibery/sacred-markdown
+          REMOTE_RELEASE="$REMOTE_ROOT/releases/$BUILD_SHA"
+          ssh -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" "mkdir -p '$REMOTE_RELEASE'"
+          rsync -az --delete -e 'ssh -i ~/.ssh/deploy_key' dist/ "$VPS_USER@$VPS_HOST:$REMOTE_RELEASE/"
+          ssh -i ~/.ssh/deploy_key "$VPS_USER@$VPS_HOST" \
+            "set -e; cd '$REMOTE_ROOT'; ln -sfn 'releases/$BUILD_SHA' current.next; mv -Tf current.next current; find releases -mindepth 1 -maxdepth 1 -type d -printf '%T@ %p\n' | sort -nr | tail -n +6 | cut -d' ' -f2- | xargs -r rm -rf"
+      - name: Verify public artifact
+        env:
+          BUILD_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            body="$(curl --fail --silent --show-error --max-time 15 https://sacred-markdown.vibery.gg/BUILD_INFO.json || true)"
+            if printf '%s' "$body" | grep -q "$BUILD_SHA"; then
+              curl --fail --silent --show-error --max-time 15 https://sacred-markdown.vibery.gg/benchmark.json >/dev/null
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Public build identity did not match $BUILD_SHA" >&2
+          exit 1

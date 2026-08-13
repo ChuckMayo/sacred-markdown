@@ -1,0 +1,43 @@
+{
+  "benchmarkVersion": "0.1.0",
+  "generatedAt": "2026-08-13T11:41:13.644Z",
+  "model": "gpt-5.5",
+  "codexVersion": "codex-cli 0.133.0",
+  "format": "json",
+  "run": 1,
+  "temperature": "provider default",
+  "tasks": [
+    {
+      "id": "release",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Deployment\"},\"children\":[\"text\",\"gateway\",\"progress\",\"button\"]},\"text\":{\"type\":\"Text\",\"props\":{\"text\":\"Two checks remain.\"}},\"gateway\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Gateway\",\"value\":\"Operational\",\"badgeVariant\":\"success\"}},\"progress\":{\"type\":\"ProgressBar\",\"props\":{\"label\":\"Release progress\",\"value\":8,\"max\":10,\"color\":\"blue\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Review release\",\"action\":\"open_release\",\"releaseId\":\"release-42\"}}}}"
+    },
+    {
+      "id": "incident",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Edge latency\"},\"children\":[\"text\",\"api\",\"button\"]},\"text\":{\"type\":\"Text\",\"props\":{\"text\":\"The p95 threshold is exceeded.\"}},\"api\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"API edge\",\"value\":\"Degraded\",\"badgeVariant\":\"error\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Acknowledge incident\",\"action\":\"acknowledge_incident\",\"incidentId\":\"inc-204\"}}}}"
+    },
+    {
+      "id": "build",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Candidate 184\"},\"children\":[\"tests\",\"artifact\",\"progress\",\"button\"]},\"tests\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Tests\",\"value\":\"Passing\",\"badgeVariant\":\"success\"}},\"artifact\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Artifact\",\"value\":\"Signing\",\"badgeVariant\":\"warning\"}},\"progress\":{\"type\":\"ProgressBar\",\"props\":{\"label\":\"Build progress\",\"value\":31,\"max\":36,\"color\":\"blue\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Inspect build\",\"action\":\"inspect_build\",\"buildId\":\"184\"}}}}"
+    },
+    {
+      "id": "usage",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Monthly capacity\"},\"children\":[\"pool\",\"progress\",\"button\"]},\"pool\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Token pool\",\"value\":\"Healthy\",\"badgeVariant\":\"success\"}},\"progress\":{\"type\":\"ProgressBar\",\"props\":{\"label\":\"Capacity progress\",\"value\":62,\"max\":100,\"color\":\"green\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"View usage\",\"action\":\"open_usage\",\"workspaceId\":\"vibery\"}}}}"
+    },
+    {
+      "id": "review",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Security review\"},\"children\":[\"text\",\"dependency\",\"secret\",\"button\"]},\"text\":{\"type\":\"Text\",\"props\":{\"text\":\"One decision needs an owner.\"}},\"dependency\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Dependency audit\",\"value\":\"Clear\",\"badgeVariant\":\"success\"}},\"secret\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Secret scan\",\"value\":\"Needs review\",\"badgeVariant\":\"warning\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Assign reviewer\",\"action\":\"open_review\",\"reviewId\":\"sec-18\"}}}}"
+    },
+    {
+      "id": "onboarding",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"First shift\"},\"children\":[\"workspace\",\"progress\",\"button\"]},\"workspace\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Workspace\",\"value\":\"Connected\",\"badgeVariant\":\"success\"}},\"progress\":{\"type\":\"ProgressBar\",\"props\":{\"label\":\"Setup progress\",\"value\":3,\"max\":4,\"color\":\"blue\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Finish setup\",\"action\":\"continue_setup\",\"step\":\"credentials\"}}}}"
+    },
+    {
+      "id": "fleet",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Crew status\"},\"children\":[\"lou\",\"otto\",\"garry\",\"button\"]},\"lou\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Lou\",\"value\":\"Active\",\"badgeVariant\":\"success\"}},\"otto\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Otto\",\"value\":\"Reviewing\",\"badgeVariant\":\"default\"}},\"garry\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Garry\",\"value\":\"Blocked\",\"badgeVariant\":\"warning\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Open fleet\",\"action\":\"open_fleet\",\"fleetId\":\"primary\"}}}}"
+    },
+    {
+      "id": "registry",
+      "content": "{\"root\":\"root\",\"elements\":{\"root\":{\"type\":\"BriefingCard\",\"props\":{\"title\":\"Pack verification\"},\"children\":[\"integrity\",\"compatibility\",\"progress\",\"button\"]},\"integrity\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Integrity\",\"value\":\"Verified\",\"badgeVariant\":\"success\"}},\"compatibility\":{\"type\":\"StatusRow\",\"props\":{\"label\":\"Compatibility\",\"value\":\"Sacred 0.1\",\"badgeVariant\":\"default\"}},\"progress\":{\"type\":\"ProgressBar\",\"props\":{\"label\":\"Conformance progress\",\"value\":48,\"max\":48,\"color\":\"green\"}},\"button\":{\"type\":\"Button\",\"props\":{\"label\":\"Inspect package\",\"action\":\"open_project\",\"projectId\":\"sacred-registry\"}}}}"
+    }
+  ]
+}

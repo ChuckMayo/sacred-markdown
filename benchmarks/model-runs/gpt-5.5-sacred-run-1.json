@@ -1,0 +1,43 @@
+{
+  "benchmarkVersion": "0.1.0",
+  "generatedAt": "2026-08-13T11:42:54.438Z",
+  "model": "gpt-5.5",
+  "codexVersion": "codex-cli 0.133.0",
+  "format": "sacred",
+  "run": 1,
+  "temperature": "provider default",
+  "tasks": [
+    {
+      "id": "release",
+      "content": "# Deployment\n\nTwo checks remain.\n\n:::status {#gateway label=\"Gateway\" value=\"Operational\" tone=\"success\"}\n:::\n\n:::progress {#release-progress label=\"Release\" value=8 max=10}\n:::\n\n:::action {#open-release name=\"open_release\" releaseId=\"release-42\"}\nReview release\n:::"
+    },
+    {
+      "id": "incident",
+      "content": "# Edge latency\n\nThe p95 threshold is exceeded.\n\n:::status {#api-edge label=\"API edge\" value=\"Degraded\" tone=\"critical\"}\n:::\n\n:::action {#acknowledge-incident name=\"acknowledge_incident\" incidentId=\"inc-204\"}\nAcknowledge incident\n:::"
+    },
+    {
+      "id": "build",
+      "content": "# Candidate 184\n\n:::status {#tests label=\"Tests\" value=\"Passing\" tone=\"success\"}\n:::\n\n:::status {#artifact label=\"Artifact\" value=\"Signing\" tone=\"warning\"}\n:::\n\n:::progress {#build-progress label=\"Build\" value=31 max=36}\n:::\n\n:::action {#inspect-build name=\"inspect_build\" buildId=\"184\"}\nInspect build\n:::"
+    },
+    {
+      "id": "usage",
+      "content": "# Monthly capacity\n\n:::status {#token-pool label=\"Token pool\" value=\"Healthy\" tone=\"success\"}\n:::\n\n:::progress {#capacity-progress label=\"Capacity\" value=62 max=100}\n:::\n\n:::action {#open-usage name=\"open_usage\" workspaceId=\"vibery\"}\nView usage\n:::"
+    },
+    {
+      "id": "review",
+      "content": "# Security review\n\nOne decision needs an owner.\n\n:::status {#dependency-audit label=\"Dependency audit\" value=\"Clear\" tone=\"success\"}\n:::\n\n:::status {#secret-scan label=\"Secret scan\" value=\"Needs review\" tone=\"warning\"}\n:::\n\n:::action {#open-review name=\"open_review\" reviewId=\"sec-18\"}\nAssign reviewer\n:::"
+    },
+    {
+      "id": "onboarding",
+      "content": "# First shift\n\n:::status {#workspace label=\"Workspace\" value=\"Connected\" tone=\"success\"}\n:::\n\n:::progress {#setup-progress label=\"Setup\" value=3 max=4}\n:::\n\n:::action {#continue-setup name=\"continue_setup\" step=\"credentials\"}\nFinish setup\n:::"
+    },
+    {
+      "id": "fleet",
+      "content": "# Crew status\n\n:::status {#lou label=\"Lou\" value=\"Active\" tone=\"success\"}\n:::\n\n:::status {#otto label=\"Otto\" value=\"Reviewing\" tone=\"info\"}\n:::\n\n:::status {#garry label=\"Garry\" value=\"Blocked\" tone=\"warning\"}\n:::\n\n:::action {#open-fleet name=\"open_fleet\" fleetId=\"primary\"}\nOpen fleet\n:::"
+    },
+    {
+      "id": "registry",
+      "content": "# Pack verification\n\n:::status {#integrity label=\"Integrity\" value=\"Verified\" tone=\"success\"}\n:::\n\n:::status {#compatibility label=\"Compatibility\" value=\"Sacred 0.1\" tone=\"info\"}\n:::\n\n:::progress {#conformance-progress label=\"Conformance\" value=48 max=48}\n:::\n\n:::action {#open-project name=\"open_project\" projectId=\"sacred-registry\"}\nInspect package\n:::"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "release",
+    "prompt": "Create a release memorandum titled Deployment. Say two checks remain. Show Gateway as Operational with success tone, Release progress 8 of 10, and an open_release action labeled Review release with releaseId release-42.",
+    "requiredTerms": ["Deployment", "Gateway", "Operational", "Release", "8", "10", "Review release", "release-42"],
+    "requiredCapabilities": { "status": 1, "progress": 1, "action": 1 }
+  },
+  {
+    "id": "incident",
+    "prompt": "Create an incident brief titled Edge latency. Say the p95 threshold is exceeded. Show API edge as Degraded with critical tone and an acknowledge_incident action labeled Acknowledge incident with incidentId inc-204.",
+    "requiredTerms": ["Edge latency", "p95", "API edge", "Degraded", "Acknowledge incident", "inc-204"],
+    "requiredCapabilities": { "status": 1, "action": 1 }
+  },
+  {
+    "id": "build",
+    "prompt": "Create a build report titled Candidate 184. Show Tests as Passing with success tone, Artifact as Signing with warning tone, Build progress 31 of 36, and an inspect_build action labeled Inspect build with buildId 184.",
+    "requiredTerms": ["Candidate 184", "Tests", "Passing", "Artifact", "Signing", "Build", "31", "36", "Inspect build"],
+    "requiredCapabilities": { "status": 2, "progress": 1, "action": 1 }
+  },
+  {
+    "id": "usage",
+    "prompt": "Create a usage note titled Monthly capacity. Show Token pool as Healthy with success tone, Capacity progress 62 of 100, and an open_usage action labeled View usage with workspaceId vibery.",
+    "requiredTerms": ["Monthly capacity", "Token pool", "Healthy", "Capacity", "62", "100", "View usage", "vibery"],
+    "requiredCapabilities": { "status": 1, "progress": 1, "action": 1 }
+  },
+  {
+    "id": "review",
+    "prompt": "Create a review memo titled Security review. Say one decision needs an owner. Show Dependency audit as Clear with success tone, Secret scan as Needs review with warning tone, and an open_review action labeled Assign reviewer with reviewId sec-18.",
+    "requiredTerms": ["Security review", "decision", "Dependency audit", "Clear", "Secret scan", "Needs review", "Assign reviewer", "sec-18"],
+    "requiredCapabilities": { "status": 2, "action": 1 }
+  },
+  {
+    "id": "onboarding",
+    "prompt": "Create an onboarding card titled First shift. Show Workspace as Connected with success tone, Setup progress 3 of 4, and a continue_setup action labeled Finish setup with step credentials.",
+    "requiredTerms": ["First shift", "Workspace", "Connected", "Setup", "3", "4", "Finish setup", "credentials"],
+    "requiredCapabilities": { "status": 1, "progress": 1, "action": 1 }
+  },
+  {
+    "id": "fleet",
+    "prompt": "Create a fleet brief titled Crew status. Show Lou as Active with success tone, Otto as Reviewing with info tone, Garry as Blocked with warning tone, and an open_fleet action labeled Open fleet with fleetId primary.",
+    "requiredTerms": ["Crew status", "Lou", "Active", "Otto", "Reviewing", "Garry", "Blocked", "Open fleet", "primary"],
+    "requiredCapabilities": { "status": 3, "action": 1 }
+  },
+  {
+    "id": "registry",
+    "prompt": "Create a registry report titled Pack verification. Show Integrity as Verified with success tone, Compatibility as Sacred 0.1 with info tone, Conformance progress 48 of 48, and an open_project action labeled Inspect package with projectId sacred-registry.",
+    "requiredTerms": ["Pack verification", "Integrity", "Verified", "Compatibility", "Sacred 0.1", "Conformance", "48", "Inspect package", "sacred-registry"],
+    "requiredCapabilities": { "status": 2, "progress": 1, "action": 1 }
+  }
+]
