@@ -148,7 +148,11 @@ function summarize(format: "sacred" | "json") {
 const sacred = summarize("sacred");
 const json = summarize("json");
 const tokenReductionPercent = Number(((1 - sacred.meanOutputTokens / json.meanOutputTokens) * 100).toFixed(1));
-const generatedAt = new Date().toISOString();
+const generatedAt = runs
+  .map((run) => run.generatedAt)
+  .filter(Boolean)
+  .sort()
+  .at(-1) ?? "unknown";
 const result = {
   benchmarkVersion: "0.1.0",
   generatedAt,
