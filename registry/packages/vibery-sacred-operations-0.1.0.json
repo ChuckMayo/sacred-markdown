@@ -11,10 +11,12 @@
     "react": "../../src/rendering/react.tsx",
     "vibery-flat-map": "../../src/adapters/vibery.ts"
   },
-  "themes": ["command-dark"],
+  "themes": [
+    "command-dark"
+  ],
   "provenance": {
     "repository": "https://github.com/ChuckMayo/sacred-markdown",
-    "commit": "TO_BE_STAMPED"
+    "commit": "2c4c13a"
   },
-  "integrity": "TO_BE_STAMPED"
+  "integrity": "sha256-dEiVPEKIErqVAj7UODF+EvE9DNz8PVV4D/S3D9nbCG8="
 }

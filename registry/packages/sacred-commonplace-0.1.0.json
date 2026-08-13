@@ -11,10 +11,12 @@
     "react": "../../src/rendering/react.tsx",
     "terminal": "../../src/adapters/terminal.ts"
   },
-  "themes": ["commonplace-paper"],
+  "themes": [
+    "commonplace-paper"
+  ],
   "provenance": {
     "repository": "https://github.com/ChuckMayo/sacred-markdown",
-    "commit": "TO_BE_STAMPED"
+    "commit": "2c4c13a"
   },
-  "integrity": "TO_BE_STAMPED"
+  "integrity": "sha256-OqzD8eiYnteiS/2cWGsCoFEbkVQAwHzJcJk7N/FDQsQ="
 }
