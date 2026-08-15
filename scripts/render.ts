@@ -41,18 +41,22 @@ const contract: CapabilityContract = {
   allowedActions,
 };
 
+// process.exitCode (never process.exit()): a forced exit tears the process
+// down before stdout drains, silently truncating piped output past the
+// stream buffer (~64KB) while still reporting success.
 const text = fs.readFileSync(file, "utf-8");
 if (source) {
   process.stdout.write(text);
-  process.exit(0);
-}
+} else {
+  const { document, diagnostics } = parseSacred(text, contract);
+  const errors = diagnostics.filter((d) => d.severity === "error");
+  for (const d of diagnostics) {
+    console.error(`${d.severity}: ${d.code} — ${d.message}`);
+  }
 
-const { document, diagnostics } = parseSacred(text, contract);
-const errors = diagnostics.filter((d) => d.severity === "error");
-for (const d of diagnostics) {
-  console.error(`${d.severity}: ${d.code} — ${d.message}`);
+  const color = process.stdout.isTTY === true && process.env.NO_COLOR === undefined;
+  process.stdout.write(
+    (plain ? renderMarkdownFallback(document) : renderTerminal(document, color)) + "\n",
+  );
+  process.exitCode = errors.length > 0 ? 1 : 0;
 }
-
-const color = process.stdout.isTTY === true && process.env.NO_COLOR === undefined;
-process.stdout.write((plain ? renderMarkdownFallback(document) : renderTerminal(document, color)) + "\n");
-process.exit(errors.length > 0 ? 1 : 0);
