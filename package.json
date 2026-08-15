@@ -19,6 +19,7 @@
     "benchmark": "tsx scripts/benchmark.ts",
     "benchmark:generate": "node scripts/generate-model-runs.mjs",
     "registry": "node scripts/registry-cli.mjs",
+    "render": "tsx scripts/render.ts",
     "prepare:public": "node scripts/prepare-public.mjs",
     "verify": "npm run test && npm run typecheck && npm run benchmark && npm run build:site",
     "build:site": "npm run prepare:public && vite build"
