@@ -19,5 +19,5 @@
     "jsx": "react-jsx",
     "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
-  "include": ["src", "tests", "scripts/benchmark.ts"]
+  "include": ["src", "tests", "scripts/benchmark.ts", "scripts/render.ts"]
 }
